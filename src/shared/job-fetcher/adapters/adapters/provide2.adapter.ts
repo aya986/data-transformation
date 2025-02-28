@@ -11,7 +11,7 @@ import {
   Provider2ResponseDto,
 } from "../../dto/provider2-response.dto";
 
-export class Provider1Adapter implements DataFetcher<Provider2ResponseDto> {
+export class Provider2Adapter implements DataFetcher<Provider2ResponseDto> {
   constructor() {}
 
   async fetchJobs(): Promise<unifiedResponseDto> {
