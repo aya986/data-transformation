@@ -20,7 +20,7 @@ export class Provider1Adapter implements DataFetcher<Provider1ResponseDto> {
       if (Object.prototype.hasOwnProperty.call(response.jobs, key)) {
         const job = response.jobs[key];
         jobsList.push({
-          jobId: key,
+          jobId: job.jobId,
           position: job.title,
           type: job.details.type,
           location: job.details.location,
@@ -41,8 +41,8 @@ export class Provider1Adapter implements DataFetcher<Provider1ResponseDto> {
   private convertCompensation(salaryRange: string): CompensationDto {
     const [min, max] = salaryRange.split(" - ").map((s) => parseInt(s.replace(/\D/g, ''), 10));
     return {
-      min,
-      max,
+      min: min * 1000,
+      max: max * 1000,
       currency: "USD",
     };
   }
