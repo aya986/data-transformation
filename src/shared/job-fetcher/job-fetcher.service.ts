@@ -1,26 +1,23 @@
 import { Injectable } from '@nestjs/common';
-// import { CreateJobFetcherDto } from './dto/provider1-response.dto';
-// import { UpdateJobFetcherDto } from './dto/update-job-fetcher.dto';
+import { Cron, CronExpression } from '@nestjs/schedule';
+import { ProviderFactory } from './adapters/interfaces/data-fetcher.interface';
+import { Provides } from './enums';
 
 @Injectable()
 export class JobFetcherService {
-  // create(createJobFetcherDto: CreateJobFetcherDto) {
-  //   return 'This action adds a new jobFetcher';
-  // }
+  constructor(
+    private providerFactory: ProviderFactory,
+  ) {}
 
-  findAll() {
-    return `This action returns all jobFetcher`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} jobFetcher`;
-  }
-
-  // update(id: number, updateJobFetcherDto: UpdateJobFetcherDto) {
-  //   return `This action updates a #${id} jobFetcher`;
-  // }
-
-  remove(id: number) {
-    return `This action removes a #${id} jobFetcher`;
+  @Cron(CronExpression.EVERY_10_SECONDS)
+  async handleCron() {
+    for (const provider of Object.values(Provides)) {
+      console.log(provider);
+      const dataFetcher = this.providerFactory.createProvider(provider);
+      const result = await dataFetcher.fetchJobs();
+      console.log(`result length`, result.jobsList.length);
+      
+    }
+    console.log("Running scheduled job to fetch jobs...");
   }
 }

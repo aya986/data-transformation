@@ -2,7 +2,9 @@ import axios from "axios";
 import { Provider1CompanyDto, Provider1ResponseDto } from "../../dto/provider1-response.dto";
 import { DataFetcher } from "../interfaces/data-fetcher.interface";
 import { CompanyDto, CompensationDto, RequirementsDto, unifiedJobDto, unifiedResponseDto } from "../../dto/unified-response.dto";
+import { Injectable } from "@nestjs/common";
 
+@Injectable()
 export class Provider1Adapter implements DataFetcher<Provider1ResponseDto> {
   constructor() { }
 

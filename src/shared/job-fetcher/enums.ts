@@ -1,0 +1,4 @@
+export enum Provides {
+  PROVIDER1 = 'provider1',
+  PROVIDER2 = 'provider2',
+}

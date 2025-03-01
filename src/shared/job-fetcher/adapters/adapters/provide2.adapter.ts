@@ -10,7 +10,9 @@ import {
   Provider2RequirementsDto,
   Provider2ResponseDto,
 } from "../../dto/provider2-response.dto";
+import { Injectable } from "@nestjs/common";
 
+@Injectable()
 export class Provider2Adapter implements DataFetcher<Provider2ResponseDto> {
   constructor() {}
 
