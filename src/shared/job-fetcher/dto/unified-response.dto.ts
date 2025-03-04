@@ -24,7 +24,7 @@ export class unifiedJobDto {
   compensation: CompensationDto;
   company: CompanyDto;
   requirements: RequirementsDto;
-  datePosted: string;
+  datePosted: Date;
 }
 
 export class unifiedResponseDto {

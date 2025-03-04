@@ -3,9 +3,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  OneToOne,
-  JoinColumn,
-  CreateDateColumn,
   ManyToMany,
   JoinTable,
 } from "typeorm";
@@ -59,6 +56,6 @@ export class Job {
   @JoinTable()
   skills: Skill[];
 
-  @Column()
-  datePosted: string;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  datePosted: Date;
 }

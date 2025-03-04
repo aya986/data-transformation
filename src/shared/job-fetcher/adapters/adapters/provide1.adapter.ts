@@ -29,7 +29,7 @@ export class Provider1Adapter implements DataFetcher<Provider1ResponseDto> {
           compensation: this.convertCompensation(job.details.salaryRange),
           company: this.convertCompany(job.company),
           requirements: this.convertRequirements(job.skills),
-          datePosted: job.postedDate
+          datePosted: new Date(job.postedDate),
         });
       }
     }

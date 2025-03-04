@@ -37,7 +37,7 @@ export class Provider2Adapter implements DataFetcher<Provider2ResponseDto> {
           compensation: job.compensation,
           company: job.employer,
           requirements: this.convertRequirements(job.requirements),
-          datePosted: job.datePosted,
+          datePosted: new Date(job.datePosted),
         });
       }
     }
