@@ -22,7 +22,6 @@ export class JobFetcherService {
   @Cron(Scheduling.cronTime)
   async handleCron() {
     for (const provider of Object.values(Provides)) {
-      console.log(provider);
       const dataFetcher = this.providerFactory.createProvider(provider);
       const results = await dataFetcher.fetchJobs();
 
@@ -40,6 +39,7 @@ export class JobFetcherService {
         jobDto.currency = job.compensation.currency;
         jobDto.location = job.location;
         jobDto.datePosted = job.datePosted;
+        jobDto.provider = provider;
 
         // Handling Company
         let company = await this.companyRepository.findOne({

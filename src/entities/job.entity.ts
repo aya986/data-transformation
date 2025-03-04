@@ -43,6 +43,9 @@ export class Job {
   @Column()
   currency: string;
 
+  @Column()
+  provider: string;
+
   @ManyToOne(() => Company, (company) => company.jobs, { cascade: true })
   company: Company;
 
