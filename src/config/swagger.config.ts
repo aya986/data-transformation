@@ -6,5 +6,7 @@ export const swaggerConfig = (app) => {
     .setDescription('Job Offer API Document')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('doc', app, document);
+  SwaggerModule.setup('doc', app, document, {
+    jsonDocumentUrl: 'api-json',
+  });
 };
