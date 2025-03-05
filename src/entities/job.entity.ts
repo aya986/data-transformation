@@ -12,7 +12,7 @@ import { Skill } from "./skill.entity";
 @Entity()
 export class Job {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column({
     unique: true,
@@ -44,7 +44,7 @@ export class Job {
   provider: string;
 
   @ManyToOne(() => Company, (company) => company.jobs, { cascade: true })
-  company: Company;
+  company?: Company;
 
   @Column({ nullable: true })
   experienceLevel?: string;
@@ -54,7 +54,7 @@ export class Job {
 
   @ManyToMany(() => Skill, { cascade: true })
   @JoinTable()
-  skills: Skill[];
+  skills?: Skill[];
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   datePosted: Date;

@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { Cron, CronExpression } from "@nestjs/schedule";
+import { Cron } from "@nestjs/schedule";
 import { ProviderFactory } from "./adapters/interfaces/data-fetcher.interface";
 import { Provides } from "./enums";
-import { Job } from "src/entities/job.entity";
-import { Company } from "src/entities/Company.entity";
-import { Skill } from "src/entities/skill.entity";
+import { Scheduling } from "@src/config";
 import { JobRepository } from "./repositories/job.repository";
 import { CompanyRepository } from "./repositories/company.repository";
 import { SkillRepository } from "./repositories/skill.repository";
-import { Scheduling } from "src/config";
+import { Company } from "@entities/Company.entity";
+import { Skill } from "@entities/skill.entity";
+import { Job } from "@entities/job.entity";
 
 @Injectable()
 export class JobFetcherService {
@@ -28,6 +28,7 @@ export class JobFetcherService {
       if (results.status !== "success") {
         continue;
       }
+
       const jobs = results.jobsList.map(async (job) => {
         const jobDto = new Job();
         jobDto.position = job.position;

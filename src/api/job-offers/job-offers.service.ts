@@ -1,16 +1,15 @@
 import { Injectable, InternalServerErrorException } from "@nestjs/common";
-import { Job } from "src/entities/job.entity";
-import { JobRepository } from "src/shared/job-fetcher/repositories/job.repository";
 import { InjectRepository } from "@nestjs/typeorm";
 import { PageDto } from "./dto/page.dto";
 import { PageMetaDto } from "./dto/page-meta.dto";
 import { JobPageOptionsDto } from "./dto/job-page-options.dto";
+import { JobRepository } from "@src/shared/job-fetcher/repositories/job.repository";
+import { Job } from "@entities/job.entity";
 import {
   FindOptionsWhere,
   ILike,
   LessThanOrEqual,
   MoreThanOrEqual,
-  SelectQueryBuilder,
 } from "typeorm";
 
 @Injectable()

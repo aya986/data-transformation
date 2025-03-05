@@ -1,6 +1,6 @@
+import { Skill } from '@entities/skill.entity';
 import { Injectable } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
-import { Skill } from 'src/entities/skill.entity';
 
 @Injectable()
 export class SkillRepository extends Repository<Skill> {

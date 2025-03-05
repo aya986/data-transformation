@@ -5,13 +5,13 @@ import { ProviderFactory } from "./adapters/interfaces/data-fetcher.interface";
 import { Provider1Adapter } from "./adapters/adapters/provide1.adapter";
 import { Provider2Adapter } from "./adapters/adapters/provide2.adapter";
 import { ScheduleModule } from "@nestjs/schedule";
-import { Skill } from "../../entities/skill.entity";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { Skill } from "@entities/skill.entity";
+import { Job } from "@entities/job.entity";
+import { Company } from "@entities/Company.entity";
 import { JobRepository } from "./repositories/job.repository";
 import { CompanyRepository } from "./repositories/company.repository";
 import { SkillRepository } from "./repositories/skill.repository";
-import { Job } from "src/entities/job.entity";
-import { Company } from "src/entities/Company.entity";
 
 @Module({
   imports: [

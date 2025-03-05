@@ -4,7 +4,7 @@ import { Job } from './job.entity';
 @Entity()
 export class Company {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   name: string;
@@ -16,5 +16,5 @@ export class Company {
   website?: string;
 
   @OneToMany(() => Job, (job) => job.company)
-  jobs: Job;
+  jobs?: Job;
 }

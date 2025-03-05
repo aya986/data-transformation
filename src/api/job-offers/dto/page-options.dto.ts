@@ -1,7 +1,7 @@
 import { ApiPropertyOptional } from "@nestjs/swagger";
+import { Order } from "@src/shared/job-fetcher/enums";
 import { Type } from "class-transformer";
 import { IsEnum, IsInt, IsOptional, Max, Min } from "class-validator";
-import { Order } from "src/shared/job-fetcher/enums";
 
 export class PageOptionsDto {
   @ApiPropertyOptional({ enum: Order, default: Order.ASC })
